@@ -1,1 +1,0 @@
-All document routes now use Download PDF controls.
