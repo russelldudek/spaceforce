@@ -10,3 +10,161 @@
   --geo-alert: #F05D5E;
   --geo-good: #55C58F;
 }
+
+/* Visual QA corrections: shared document controls */
+.document-body .doc-actions {
+  margin: 1.25rem auto 1rem;
+  padding: .55rem;
+  border: 1px solid #bfd0d8;
+  border-radius: 18px;
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 10px 28px rgba(7,19,29,.09);
+  align-items: center;
+}
+.document-body .doc-actions .button {
+  min-height: 42px;
+  padding: .64rem .95rem;
+  border-color: #b8cbd3;
+  color: var(--geo-ink);
+  background: #fff;
+  box-shadow: none;
+  transition: transform .16s ease, box-shadow .16s ease, background .16s ease, border-color .16s ease;
+}
+.document-body .doc-actions .button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 16px rgba(7,19,29,.10);
+  border-color: #86b9cc;
+}
+.document-body .doc-actions .button.dark {
+  color: #fff !important;
+  background: var(--geo-ink) !important;
+  border-color: var(--geo-ink) !important;
+}
+.document-body .doc-actions .button.dark:hover {
+  color: #fff !important;
+  background: #0e2a3b !important;
+  border-color: #0e2a3b !important;
+}
+
+/* Cover letter: screen composition and one-page print composition */
+.cover-letter-page .document-shell { padding: 1.25rem 1rem 3rem; }
+.cover-letter-page .doc-page {
+  min-height: auto;
+  padding: .58in .62in .48in;
+}
+.cover-letter-page .doc-header { margin-bottom: .14in; }
+.cover-letter-page .doc-company-line {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 0 0 .18in;
+  color: var(--geo-graphite);
+  font-size: 8pt;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.cover-letter-page .geo-wordmark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: .25rem .48rem;
+  border-radius: 8px;
+  background: var(--geo-cyan);
+  color: var(--geo-ink);
+  font-size: 8.2pt;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+.cover-letter-grid {
+  display: grid;
+  grid-template-columns: 1.72in minmax(0,1fr);
+  gap: .34in;
+  align-items: stretch;
+}
+.cover-letter-rail {
+  padding: .20in .18in;
+  background: linear-gradient(180deg,#eaf7fc 0%,#f8fcfe 100%);
+  border-top: 4px solid var(--geo-cyan);
+  border-radius: 0 0 14px 14px;
+  color: #20343e;
+}
+.cover-letter-rail .rail-label {
+  margin: 0 0 .08in;
+  color: #007fae;
+  font-size: 7.8pt;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.cover-letter-rail h2 {
+  margin: 0 0 .12in;
+  color: var(--geo-ink);
+  font-size: 17pt;
+  line-height: 1.03;
+  letter-spacing: -.035em;
+}
+.cover-letter-rail p,
+.cover-letter-rail li {
+  font-size: 8.4pt;
+  line-height: 1.38;
+}
+.cover-letter-rail p { margin: 0 0 .14in; }
+.cover-letter-rail ul { margin: .05in 0 .16in; padding-left: .16in; }
+.cover-letter-rail li { margin-bottom: .08in; }
+.cover-letter-rail a { color: #007fae; font-weight: 900; text-decoration: none; }
+.cover-letter-copy { min-width: 0; }
+.letter-meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .03in;
+  margin: 0 0 .14in;
+  padding: 0 0 .12in;
+  border-bottom: 1px solid #c9dce4;
+  color: #394e58;
+  font-size: 8.7pt;
+  line-height: 1.35;
+}
+.letter-subject { color: var(--geo-ink); font-weight: 900; }
+.cover-letter-copy p {
+  margin: 0 0 .12in;
+  font-size: 9.35pt;
+  line-height: 1.47;
+}
+.cover-letter-copy .opening {
+  color: #102b39;
+  font-size: 10.3pt;
+  line-height: 1.46;
+}
+.cover-letter-copy .signature { margin-top: .18in; }
+.cover-letter-page .doc-footer {
+  position: static;
+  margin-top: .30in;
+}
+
+@media (max-width: 760px) {
+  .document-body .doc-actions { padding: .45rem; border-radius: 14px; }
+  .document-body .doc-actions .button { flex: 1 1 calc(50% - .4rem); font-size: .8rem; }
+  .cover-letter-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .cover-letter-rail { border-radius: 0 0 12px 12px; }
+  .cover-letter-page .doc-page { padding: 1.25rem; }
+}
+
+@media print {
+  .cover-letter-page .doc-page {
+    width: 8.5in;
+    height: 11in;
+    min-height: 11in;
+    padding: .48in .55in .42in;
+  }
+  .cover-letter-page .doc-footer {
+    position: absolute;
+    left: .55in;
+    right: .55in;
+    bottom: .22in;
+    margin-top: 0;
+  }
+  .cover-letter-grid { grid-template-columns: 1.68in minmax(0,1fr); gap: .30in; }
+  .cover-letter-rail { padding: .18in .16in; }
+  .cover-letter-copy p { margin-bottom: .105in; font-size: 9.2pt; line-height: 1.43; }
+}
